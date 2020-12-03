@@ -2,7 +2,7 @@
 
 
 
-# Etcd V3 api tool 
+# Etcd V3 API Tool 
 I have created a new etcdtool for etcd V3 API.
 Able to import YAML / JSON into your etcd cluster registry V3.
 
