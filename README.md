@@ -11,7 +11,7 @@ Able to import YAML / JSON into your etcd cluster registry V3.
 
 
 ### Running the script
-  python3 etcd-import.py -h for help menu.
+  python3 etcdtool.py -h for help menu.
   
   
 optional arguments:
