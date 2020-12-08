@@ -26,10 +26,11 @@ optional arguments:
   
 
 
-### You can see example under examples folder
 
-### @ in start of a VALUE will refernce to a file
 ### you can place @ in a start of a path to file to launch config from a file  into the etcd.
+
+
+### You can see example under examples folder
  
 
  You can use it for all etcd-client API requests.
