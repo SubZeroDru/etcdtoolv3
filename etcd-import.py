@@ -11,7 +11,7 @@ def argparser():
     parser = argparse.ArgumentParser()
     parser.add_argument('-u', '--url', action='store', dest='url', required=True, help="Specify endpoint of etcd server")
     parser.add_argument('-p', '--port', action='store', dest='port', required=True, help="Specify port of etcd server")
-    parser.add_argument('-f', '--file_format', action='store', dest='file_format', required=True, help="Specify file format YAML")
+    parser.add_argument('-f', '--file_name', action='store', dest='file_name', required=True, help="Specify file_name.YAML")
     parser.add_argument('-c', '--command', action='store', dest='command', required=True, help="Specifiy which etcd method GET/PUT")
     args = parser.parse_args()
     return args
@@ -38,7 +38,12 @@ def flatten_json(y):
 
 def api_put_request(json_obj):
     for key, value in json_obj.items():
-        etcd.put('/' + key, value)
+        if (value[0] =="@"):
+            contents = open(value[1:]).read()
+            etcd.put('/' + key, contents)
+        else:
+            etcd.put('/' + key, value)
+
 
 def api_get_request(json_obj, sort_order=None, sort_target='key'):
     for key, value in json_obj.items():
@@ -50,7 +55,7 @@ def api_get_request(json_obj, sort_order=None, sort_target='key'):
 
 # Open the yaml file and load it into data as json
 args = argparser()
-with open(args.file_format) as f:
+with open(args.file_name) as f:
     data = yaml.load(f, Loader=yaml.FullLoader)
 
 etcd = etcd3.client(host=args.url, port=args.port)
