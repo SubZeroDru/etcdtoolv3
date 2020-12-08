@@ -4,7 +4,7 @@
 
 # Etcd V3 API Tool 
 I have created a new etcdtool for etcd V3 API.
-Able to import YAML / JSON into your etcd cluster registry V3.
+Able to import YAML into your etcd cluster registry V3.
 
 - This tool is open source and for everyone to use.
 - Based on python3
@@ -20,7 +20,7 @@ optional arguments:
  - -u URL, --url URL     Specify endpoint of etcd server
  - -p PORT, --port PORT  Specify port of etcd server
  - -f FILE_FORMAT, --file_format FILE_FORMAT
-                        Specify file format YAML / JSON
+                        Specify file format YAML
  -  -c COMMAND, --command COMMAND
                         Specifiy which etcd method GET/PUT
   
