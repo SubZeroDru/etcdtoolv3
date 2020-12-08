@@ -12,7 +12,7 @@ Able to import YAML into your etcd cluster registry V3.
    pip install -r requirements.txt
 
 ### Running the script
-  python3 etcdtool.py -h for help menu.
+  python3 etcd-import.py -h for help menu.
   
   
 optional arguments:
