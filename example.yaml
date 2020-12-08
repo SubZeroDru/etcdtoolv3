@@ -1,0 +1,10 @@
+   test:
+     test1:
+       test2: value
+       test3: value
+   test4:
+     test5:
+       test6:
+         test7:
+           path: value
+
