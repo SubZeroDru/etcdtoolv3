@@ -14,7 +14,7 @@ def argparser():
     parser.add_argument('-p', '--port', action='store', dest='port', help="Specify port of etcd server")
     parser.add_argument('-f', '--file_name', action='store', dest='file_name', help="Specify file name")
     parser.add_argument('-c', '--command', action='store', dest='command', required=True,
-                        help="Specifiy which etcd method GET/PUT")
+                        help="Specifiy which etcd method GET/PUT/Del")
     args = parser.parse_args()
     return args
 
@@ -55,11 +55,22 @@ def api_put_request(obj):
 
 
 def print_etcd_data():
+    list_keys=[]
     for value, metadata in etcd.get_all():
         key = metadata.key.decode('utf-8')
         getattr(etcd, args.command)(key)
         print("Key: " + key)
+        list_keys.append(key)
         print("Value: " + value.decode('utf-8'))
+    return list_keys
+
+
+def deletekeys():
+    list_keys=[]
+    etcd = etcd3.client(host=args.url, port=args.port)
+    list_keys=print_etcd_data()
+    for key in list_keys:
+        etcd.delete(key)
 
 
 args = argparser()
@@ -67,6 +78,8 @@ etcd = etcd3.client(host=args.url, port=args.port)
 
 if args.command == "get":
     print_etcd_data()
+elif args.command == "delete":
+      deletekeys()
 else:
     # Open the yaml file and load it into data as json
     with open(args.file_name) as f:
