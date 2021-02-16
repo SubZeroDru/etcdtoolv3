@@ -19,10 +19,8 @@ optional arguments:
  - -h, --help            show this help message and exit
  - -u URL, --url URL     Specify endpoint of etcd server
  - -p PORT, --port PORT  Specify port of etcd server
- - -f FILE_NAME, --file_name FILE_NAME
-                        Specify file_name.YAML
- -  -c COMMAND, --command COMMAND
-                        Specifiy which etcd method GET/PUT
+ - -f FILE_NAME, --file_name FILE_NAME ###Specify file_name.YAML
+ -  -c COMMAND, --command COMMAND ###Specifiy which etcd method GET/PUT/delete
   
 
 
